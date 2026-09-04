@@ -31,89 +31,128 @@ export default function Home() {
         </div>
       </section>
 
-      {/* UPCOMING TOURNAMENT */}
+      {/* UPCOMING EVENTS */}
       <section className="bg-[#0b1e3f] py-20 md:py-24 relative overflow-hidden">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(47,158,68,.12),transparent_60%)] pointer-events-none" />
         <div className="max-w-[1200px] mx-auto px-5 relative">
-          <div className="mb-8">
+          <div className="flex items-center justify-between flex-wrap gap-4 mb-10">
+            <div>
+              <span className="text-accent font-bold tracking-[3px] text-xs uppercase">Upcoming Events</span>
+              <h2 className="text-white text-3xl md:text-4xl font-black font-heading mt-1">2 Events This October</h2>
+            </div>
             <span className="bg-red-600 text-white text-[11px] font-bold tracking-[2px] uppercase py-1.5 px-4 rounded-full">
-              ⚡ Entries close 24 Sep 2026 · Only 64 seats
+              ⚡ Snooker entries close 24 Sep 2026
             </span>
           </div>
-          <div className="grid grid-cols-1 lg:grid-cols-[1fr_300px] xl:grid-cols-[1fr_340px] gap-10 xl:gap-16 items-start">
-            {/* Details */}
-            <div>
-              <span className="text-accent font-bold tracking-[3px] text-xs uppercase">Upcoming Tournament</span>
-              <h2 className="text-white text-3xl md:text-5xl font-black font-heading mt-2 mb-1 leading-tight">
-                Tamil Nadu <span className="text-gradient">Snooker</span> 2026
-              </h2>
-              <p className="text-white/50 text-sm uppercase tracking-widest mb-7">The Open State Championship · Chennai, Tamil Nadu</p>
 
-              <div className="flex flex-wrap gap-3 mb-8">
-                {[
-                  { label: 'Date', value: '01 – 04 October 2026' },
-                  { label: 'Venue', value: "Killer's Cue, Arumbakkam" },
-                  { label: 'Entry Fee', value: '₹2,000 / Player' },
-                  { label: 'Format', value: '64-Player Knockout' },
-                ].map(({ label, value }) => (
-                  <div key={label} className="bg-white/6 border border-white/12 rounded-xl px-4 py-3">
-                    <span className="text-white/40 text-[10px] uppercase tracking-widest block mb-0.5">{label}</span>
-                    <span className="text-white font-semibold text-sm">{value}</span>
-                  </div>
-                ))}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
+            {/* — SNOOKER 2026 — */}
+            <div className="bg-white/4 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+              <div className="relative h-48 overflow-hidden">
+                <img src="/snooker/announcement.png" alt="Tamil Nadu Snooker 2026" className="w-full h-full object-cover object-center" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1e3f] via-[#0b1e3f]/40 to-transparent" />
+                <span className="absolute top-3 left-3 bg-red-600 text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Entries close 24 Sep</span>
               </div>
-
-              <div className="bg-white/5 border border-white/10 rounded-2xl p-5 mb-8">
-                <p className="text-white/50 text-[11px] uppercase tracking-widest mb-4">Prize Money · ₹1,50,000 Total Pool</p>
-                <div className="grid grid-cols-3 gap-4 text-center">
+              <div className="p-7 flex flex-col flex-1">
+                <h3 className="text-white text-2xl font-black font-heading mb-1">Tamil Nadu <span className="text-gradient">Snooker</span> 2026</h3>
+                <p className="text-white/50 text-xs uppercase tracking-widest mb-5">The Open State Championship · Chennai</p>
+                <div className="grid grid-cols-2 gap-3 mb-5">
                   {[
-                    { amount: '₹60,000', title: 'Champion' },
-                    { amount: '₹35,000', title: 'Runner-up' },
-                    { amount: '₹10,000', title: 'Highest Break' },
-                  ].map(({ amount, title }) => (
-                    <div key={title}>
-                      <strong className="block num-gradient text-xl md:text-2xl font-black font-heading">{amount}</strong>
-                      <span className="text-white/45 text-[11px]">{title}</span>
+                    { label: 'Date', value: '01 – 04 Oct 2026' },
+                    { label: 'Venue', value: "Killer's Cue, Arumbakkam" },
+                    { label: 'Entry Fee', value: '₹2,000 / Player' },
+                    { label: 'Format', value: '64-Player Knockout' },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="bg-white/6 border border-white/10 rounded-xl px-3 py-2.5">
+                      <span className="text-white/40 text-[10px] uppercase tracking-widest block mb-0.5">{label}</span>
+                      <span className="text-white font-semibold text-sm">{value}</span>
                     </div>
                   ))}
                 </div>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-5">
+                  <p className="text-white/40 text-[10px] uppercase tracking-widest mb-3">Prize Pool · ₹1,50,000</p>
+                  <div className="grid grid-cols-3 gap-2 text-center">
+                    {[['₹60K','Champion'],['₹35K','Runner-up'],['₹10K','Highest Break']].map(([a,t]) => (
+                      <div key={t}><strong className="block num-gradient font-black font-heading text-lg">{a}</strong><span className="text-white/40 text-[10px]">{t}</span></div>
+                    ))}
+                  </div>
+                </div>
+                <h4 className="text-white font-bold text-sm mb-3">How to Register</h4>
+                <ol className="space-y-2 mb-6 flex-1">
+                  {['Scan QR & pay ₹2,000 on any UPI app','Screenshot the UTR / reference number','WhatsApp it + name, age, city & club','Receive your draw number before 27 Sep'].map((s,i) => (
+                    <li key={i} className="flex gap-2.5 text-white/65 text-sm items-start">
+                      <span className="btn-gradient text-white w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{i+1}</span>{s}
+                    </li>
+                  ))}
+                </ol>
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  <img src="/snooker/entry-card.png" alt="QR" className="w-16 h-16 rounded-xl object-cover shrink-0" />
+                  <div className="flex flex-col gap-2 justify-center">
+                    <a href="/snooker/pamphlet.pdf" target="_blank" rel="noopener noreferrer"
+                      className="border border-white/20 text-white px-4 py-2 rounded-full text-xs font-semibold hover:bg-white/10 transition-all">
+                      Download Pamphlet ↓
+                    </a>
+                    <p className="text-white/25 text-[10px]">Maha Seva Dal Foundation · Axis Bank</p>
+                  </div>
+                </div>
               </div>
+            </div>
 
-              <h3 className="text-white font-bold mb-4">How to Register</h3>
-              <ol className="space-y-3 mb-7">
-                {[
-                  'Scan the QR code & pay exactly ₹2,000 on any UPI app',
-                  'Screenshot the UTR / reference number from the success page',
-                  'WhatsApp it + your name, age, city & club to confirm your seat',
-                  'Receive your draw number before 27 Sep 2026',
-                ].map((step, i) => (
-                  <li key={i} className="flex gap-3 text-white/70 text-sm items-start">
-                    <span className="btn-gradient text-white w-5 h-5 rounded-full text-[10px] font-bold flex items-center justify-center flex-shrink-0 mt-0.5">{i + 1}</span>
-                    {step}
-                  </li>
-                ))}
-              </ol>
-
-              <div className="flex flex-wrap gap-3">
-                <a href="/snooker/pamphlet.pdf" target="_blank" rel="noopener noreferrer"
-                  className="border border-white/25 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-white/10 transition-all inline-flex items-center gap-2">
-                  Download Pamphlet ↓
-                </a>
-                <Link to="/gallery" className="border border-accent/50 text-accent px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-accent/10 transition-all inline-flex items-center gap-2">
-                  View All Upcoming Events →
+            {/* — RSS CLASSIC 2026 — */}
+            <div className="bg-white/4 border border-white/10 rounded-2xl overflow-hidden flex flex-col">
+              <div className="relative h-48 overflow-hidden">
+                <img src="/rss-classic/poster.jpg" alt="RSS Classic 2026" className="w-full h-full object-cover object-top" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0b1e3f] via-[#0b1e3f]/40 to-transparent" />
+                <span className="absolute top-3 left-3 bg-accent text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full">Upcoming</span>
+              </div>
+              <div className="p-7 flex flex-col flex-1">
+                <h3 className="text-white text-2xl font-black font-heading mb-1">RSS <span className="text-gradient">Classic</span> 2026</h3>
+                <p className="text-white/50 text-xs uppercase tracking-widest mb-5">Bodybuilding Championship · Tamil Nadu · Organised by NBA · Affiliated by ISYDCI</p>
+                <div className="grid grid-cols-2 gap-3 mb-5">
+                  {[
+                    { label: 'Date', value: '18 October 2026' },
+                    { label: 'Venue', value: 'Tamil Nadu' },
+                    { label: 'Entry Fee', value: '₹5,000 / Player' },
+                    { label: 'Presenter', value: 'Stay Strong Gym' },
+                  ].map(({ label, value }) => (
+                    <div key={label} className="bg-white/6 border border-white/10 rounded-xl px-3 py-2.5">
+                      <span className="text-white/40 text-[10px] uppercase tracking-widest block mb-0.5">{label}</span>
+                      <span className="text-white font-semibold text-sm">{value}</span>
+                    </div>
+                  ))}
+                </div>
+                <div className="bg-white/5 border border-white/10 rounded-xl p-4 mb-5">
+                  <p className="text-white/40 text-[10px] uppercase tracking-widest mb-3">Cash Prize Per Category</p>
+                  <div className="grid grid-cols-3 gap-2 text-center mb-3">
+                    {[['₹5,000','1st'],['₹3,000','2nd'],['₹2,000','3rd']].map(([a,t]) => (
+                      <div key={t}><strong className="block num-gradient font-black font-heading text-lg">{a}</strong><span className="text-white/40 text-[10px]">{t} Place</span></div>
+                    ))}
+                  </div>
+                  <div className="border-t border-white/10 pt-3 text-center">
+                    <strong className="num-gradient font-black font-heading text-xl">₹1,00,000</strong>
+                    <span className="text-white/40 text-[10px] block">Champion of Champion</span>
+                  </div>
+                </div>
+                <div className="mb-5">
+                  <p className="text-white/40 text-[10px] uppercase tracking-widest mb-2">Weight Categories</p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['55kg','60kg','65kg','70kg','75kg','80kg','85kg','90kg','95kg','100kg','100+kg'].map(c => (
+                      <span key={c} className="bg-white/8 border border-white/10 text-white/60 text-[10px] px-2.5 py-1 rounded-full">{c}</span>
+                    ))}
+                  </div>
+                </div>
+                <div className="mt-auto space-y-1.5 text-xs text-white/50 mb-5">
+                  <p>Kesavan (ISYDCI TN Secretary) · <a href="tel:+919600154537" className="text-accent hover:underline">9600154537</a></p>
+                  <p>Sairam (NBA TN Secretary) · <a href="tel:+919840813870" className="text-accent hover:underline">+91 98408 13870</a></p>
+                  <p>Vinoth (Stay Strong Gym) · <a href="tel:+919884648936" className="text-accent hover:underline">98846 48936</a></p>
+                </div>
+                <Link to="/gallery" className="btn-gradient text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:-translate-y-0.5 hover:shadow-[0_12px_24px_rgba(47,158,68,.35)] transition-all text-center">
+                  View Full Details →
                 </Link>
               </div>
-              <p className="text-white/30 text-xs mt-4">Maha Seva Dal Foundation · Axis Bank · First 64 paid entries only. Unconfirmed payments refunded in full.</p>
             </div>
 
-            {/* Entry Card */}
-            <div className="mx-auto lg:mx-0 w-full max-w-[300px] lg:max-w-none">
-              <img
-                src="/snooker/entry-card.png"
-                alt="Tamil Nadu Snooker 2026 — Scan & Pay to Enter"
-                className="w-full rounded-2xl shadow-[0_24px_64px_rgba(0,0,0,.55)]"
-              />
-            </div>
           </div>
         </div>
       </section>
